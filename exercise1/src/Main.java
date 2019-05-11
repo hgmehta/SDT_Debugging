@@ -21,7 +21,7 @@ public class Main {
             System.out.println("Select an operation (n): ");
             System.out.println("\t1. Addition (int1 + int2)");
             System.out.println("\t2. Difference (int1 - int2)");
-            System.out.println("\t3. Multiplication (int1 + int2)");
+            System.out.println("\t3. Multiplication (int1 * int2)");
             System.out.println("\t4. Division (int1 / int2)");
             System.out.println("\t5. Exponent (int1 ^ int2)");
             System.out.println("\t6. Choose new numbers");
@@ -45,6 +45,7 @@ public class Main {
                 case 4:
                     System.out.println("Computing division...");
                     Operations.division(int1, int2);
+                    break;
                 case 5:
                     System.out.println("Computing exponent...");
                     Operations.exponent(int1, int2);
@@ -55,6 +56,7 @@ public class Main {
                     break;
                 case 7:
                     System.out.println("Goodbye!");
+                    System.exit(0);
                     break;
                 default:
                     throw new RuntimeException("Invalid number! Calculator crashing!");
@@ -66,9 +68,11 @@ public class Main {
                 again = scanner.next();
                 if (!again.equals("y") && !again.equals("n")) {
                     System.out.println("Invalid entry. Try again");
+                }else{
+                    invalid = false;
                 }
             } while (invalid);
-        } while (again == "y");
+        } while (again.equals("y"));
     }
 
     private static void chooseNumbers(Scanner scanner) {
